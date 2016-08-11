@@ -1,8 +1,13 @@
-var assert = require('assert');
-describe('Array', function() {
-  describe('#indexOf()', function() {
-    it('should return -1 when the value is not present', function() {
-      assert.equal(-1, [1,2,3].indexOf(4));
-    });
-  });
+var chai = require('chai');
+var chaiHttp = require('chai-http');
+var server = require('../server.js');
+
+var should = chai.should();
+var app = server.app;
+var storage = server.storage;
+
+chai.use(chaiHttp);
+it('succeeds silently!', function() {
+  chai.request('http://localhost:8080')
 });
+
