@@ -6,7 +6,34 @@
     </head>
     <body>
         <p>Hi Everybody!</p>
+        <form action="" class="add_record">
+            <label for="">
+                <input type="text" name="swimr_name" placeholder="Swimmer's Name">
+            </label>
+            <label for="">
+                <input type="date" name="item_date" placeholder="Date">
+            </label>
+            <label for="">
+                <input type="text" name="item_name" placeholder="Event Name">
+            </label>
+            <label for="">
+                <input type="number" name="item_distance" placeholder="Distance">
+            </label>
+            <label for="">
+                <select name="stroke" id="item_stroke">
+                    <option value="freestyle">freestyle</option>
+                    <option value="backstroke">backstroke</option>
+                    <option value="butterfly">butterfly</option>
+                </select>
+            </label>
+            <button type="submit">Add</button>
+        </form>
 
+        <ul class="results_list">
 
+        </ul>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="app.js"></script>
     </body>
 </html>
