@@ -2,31 +2,31 @@
 <html lang="en-US">
     <head>
         <meta charset="utf-8">
-        <title>SwimPB</title>
+        <title>SwimPR</title>
     </head>
     <body>
         <p>Hi Everybody!</p>
         <form action="" class="add_record">
             <label for="">
-                <input type="text" name="swimr_name" placeholder="Swimmer's Name">
+                <input type="text" class="swimr_name" name="swimr_name" placeholder="Swimmer's Name">
             </label>
             <label for="">
-                <input type="date" name="item_date" placeholder="Date">
+                <input type="date" class="item_date" name="item_date" placeholder="Date">
             </label>
             <label for="">
-                <input type="text" name="item_name" placeholder="Event Name">
+                <input type="text" class="item_name" name="item_name" placeholder="Event Name">
             </label>
             <label for="">
-                <input type="number" name="item_distance" placeholder="Distance">
+                <input type="number" class="item_distance" name="item_distance" placeholder="Distance">
             </label>
             <label for="">
-                <select name="stroke" id="item_stroke">
+                <select name="stroke" class="item_stroke">
                     <option value="freestyle">freestyle</option>
                     <option value="backstroke">backstroke</option>
                     <option value="butterfly">butterfly</option>
                 </select>
             </label>
-            <button type="submit">Add</button>
+            <button type="submit" value="Submit">Add</button>
         </form>
 
         <ul class="results_list">
