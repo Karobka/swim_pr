@@ -13,17 +13,20 @@ app.use(bodyParser.json());
 //app.listen(process.env.PORT || 3006);
 
 //constructor function
-function Records(newname){
+function Records(){
     this.swimrId= 111;
-    this.swim_history = [];
 }
 
 Records.prototype.add = function(name){
-    {
     this.swimrId++;
-    this.swimrName = name;
-    this.swim_history = [];
-    }
+    this.item =  {
+        swimrId: this.swimrId,
+        swimrName: name,
+        swimr_history: []
+    };
+    //Push to the database
+    records.push(this.item);
+    return this.records;
 }
 var newrecords = new Records();
 
