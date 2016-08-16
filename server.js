@@ -12,12 +12,12 @@ app.use(bodyParser.json());
 
 //app.listen(process.env.PORT || 3006);
 
-//constructor function
+//Records constructor function
 function Records(){
     this.swimrId= 111;
 }
-
-Records.prototype.add = function(name){
+//creating addswimr method
+Records.prototype.addswimr = function(name){
     this.swimrId++;
     this.item =  {
         swimrId: this.swimrId,
@@ -28,13 +28,13 @@ Records.prototype.add = function(name){
     records.push(this.item);
     return this.records;
 }
+
 var newrecords = new Records();
 
 //CREATE endpoint
-app.post('/recitems/add/:name', function (req, res) {
-    newrecords.add(req.params.name);
+app.post('/addswimr/:name', function (req, res) {
+    newrecords.addswimr(req.params.name);
     res.status(201).json(records);
-    //res.json("Record added " + records.users[0].swim_history[0].swimrName);
 });
 
 //READ endpoint
@@ -53,6 +53,7 @@ app.delete('/records/del/+itemId', function (req, res){
     res.json("Record deleted...");
 });
 
+//I'm listening...
 app.listen(3006, function() {
     console.log('Listening on 3006');
 });
