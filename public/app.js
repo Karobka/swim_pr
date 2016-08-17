@@ -2,9 +2,10 @@
 
 //function that displays records from the array
 function displayItem(item) {
+    $(".swimr_list").children().remove();
     for (index in item){
-        $('.results_list').append(
-                '<li class="event_record" value=' + item.swimrId + '>' + 
+        $('.swimr_list').append(
+                '<li class="swimr_record" value=' + item[index].swimrId + '>' + 
                     item[index].swimrName + ' ' +
                     /**item.swim_history[index].itemDate + ' ' +
                     item.swim_history[index].itemName + ' ' +
@@ -25,10 +26,11 @@ function getdisplayItems() {
     retrieveItems(displayItem);
 }
 
-
+$(document).ready(function(){
 
 //Auto get records on page load
 $.ajax('/getitems').done(displayItem);
+
 
 
 //Form Submit
@@ -38,13 +40,19 @@ $(".add_record").submit(function(event){
     $.post('/addswimr/' + newname)
         .done(displayItem);
 
-    $(".results_list").children().remove();
+    $(".swimr_list").children().remove();
     $(".swimr_name").val("");
 });
 
-$(".event_record").on("click", function(){
-    var index = MOCK_STATS.swim_history.indexOf($(this).text());
-    alert(index);
+//Item DELETE
+$("ul").on("click", "li", function(){
+    var tempid = $(this).attr("value");
+    console.log("you clicked an item with id " + tempid);
+    $.ajax({
+        url: "/swimrdel/" + tempid,
+        type: "DELETE"
+    }).done(displayItem);
 });
 
 
+});

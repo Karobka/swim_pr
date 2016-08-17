@@ -40,6 +40,7 @@ app.post('/addswimr/:name', function (req, res) {
 //READ endpoint
 app.get('/getitems', function(req, res){
     res.json(records);
+    res.status(200 + "Recordsd retrieved...");
 });
 
 //UPDATE endpoint
@@ -48,9 +49,19 @@ app.put('/recitems/+itemId', function(req, res){
     res.json("Record updated...");
 });
 
-//DELETE endpoint
-app.delete('/records/del/+itemId', function (req, res){
-    res.json("Record deleted...");
+//DELETE swimr endpoint
+app.delete('/swimrdel/:swimrId', function (req, res){
+    //console.dir(req);
+    //console.log("yoyoyoyo" + Object.keys(req.params.swimrId));
+    var tempid = parseInt(req.params.swimrId);
+    for (var i = 0; i < records.length; i++ ){
+        if (tempid === records[i].swimrId) {
+            records.splice(i, 1);
+            console.log('Success, record found and deleted');
+        }
+    }
+    console.log(tempid);
+    res.status(200).json(records);
 });
 
 //I'm listening...

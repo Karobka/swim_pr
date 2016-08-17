@@ -1,6 +1,6 @@
 module.exports = [
         {
-            swimrId: "1j2k3l4",
+            swimrId: 1111111,
             swimrName: "Billy-O-Kentucky",
             swim_history: [
                 {
@@ -26,7 +26,7 @@ module.exports = [
             ]
         },
         {
-            swimrId: "2aej3k4l5",
+            swimrId: 222222,
             swimrName: "Sue",
             swim_history: [
                         {
@@ -52,7 +52,7 @@ module.exports = [
             ]
         },
         {
-            swimrId: "34n34h5",
+            swimrId: 3333333,
             swimrName: "Swimmer Joe",
             swim_history: [
                         {
