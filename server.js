@@ -39,15 +39,38 @@ app.post('/addswimr/:name', function (req, res) {
     res.status(201).json(records);
 });
 
-//READ endpoint
+//READ swimrs endpoint
 app.get('/getitems', function(req, res){
     res.json(records);
-    res.status(200 + "Recordsd retrieved...");
+    res.status(200 + "Records retrieved...");
 });
 
-//UPDATE endpoint
-app.put('/recitems/+itemId', function(req, res){
+//READ swimr events endpoint
+app.get('/getevents/:swimrId', function(req, res){
+    var tempid = parseInt(req.params.swimrId);
+    for (var i = 0; i < records.length; i++ ){
+        if (tempid === records[i].swimrId) {
+            res.status(200).json(records[i].swim_history);
+            console.log('Success, records found');
+        }
+    }
+});
 
+
+//params is from the url parameter
+//body is from the object that is sent from user input
+
+//UPDATE swimrName endpoint
+app.put('/swimrupdate/:swimrId', function(req, res){
+    var tempid = parseInt(req.params.swimrId);
+    for (var i = 0; i < records.length; i++ ){
+        if (tempid === records[i].swimrId) {
+            records[i].swimrName = req.body.swimrName;
+            console.log('Success, record updated');
+        }
+    }
+    console.log(tempid);
+    res.status(200).json(records);
     res.json("Record updated...");
 });
 
